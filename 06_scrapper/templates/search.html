@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색결과</title>
+</head>
+<body>
+    <h1>잡스크래핑 결과</h1>
+    <p>{{keyword}}로 검색되었습니다.</p>
+    <a href ="/export">
+        <button class="secondary"> csv다운로드
+
+        </button>
+      </a>
+    <table>
+        <thead>
+            <tr>
+                <td>no</td>
+                <td>공고제목</td>
+                <td>회사</td>
+                <td>지역</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i, job in jobs %}
+            <tr>
+                <td>{{i+1}}</td>
+                <td>
+                    {{job["title"]}}
+                </td>
+                <td>{{job["company"]}}</td>
+                <td>{{job["location"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
